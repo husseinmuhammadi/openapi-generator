@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: Product API
+  version: 1.0.0
+  description: Provide products specifiaction and categories
+paths:
+  /products:
+    get:
+      description: Provide a list of products
+      operationId: findProducts
+      parameters:
+        - in: query
+          name: productName
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: productCategory
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: List of products populated successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
