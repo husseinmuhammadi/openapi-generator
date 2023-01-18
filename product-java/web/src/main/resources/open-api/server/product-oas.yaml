@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
   title: Product API
-  version: 1.0.0
-  description: Provide products specifiaction and categories
+  version: 1.0.1
+  description: Provide products specification and categories
 paths:
   /products:
     get:
@@ -28,6 +28,17 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Product'
+    post:
+      description: Create a new product
+      operationId: saveProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        201:
+          description: Product created successfully
 components:
   schemas:
     Product:
