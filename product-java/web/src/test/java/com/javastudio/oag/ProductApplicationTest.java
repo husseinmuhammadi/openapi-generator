@@ -1,13 +1,9 @@
 package com.javastudio.oag;
 
+import com.javastudio.oag.integration.IntegrationTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-@SpringBootTest
-@ActiveProfiles("test")
+@IntegrationTest
 class ProductApplicationTest {
     @Test
     void contextLoad() {

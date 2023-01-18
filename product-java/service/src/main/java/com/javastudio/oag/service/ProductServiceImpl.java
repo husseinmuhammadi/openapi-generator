@@ -3,6 +3,7 @@ package com.javastudio.oag.service;
 import com.javastudio.oag.api.ProductService;
 import com.javastudio.oag.dto.ProductDto;
 import com.javastudio.oag.mapper.ProductMapper;
+import com.javastudio.oag.model.Product;
 import com.javastudio.oag.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDto> findProducts() {
         return mapper.map(repository.findAll());
+    }
+
+    @Override
+    public ProductDto saveProduct(ProductDto productDto) {
+        Product product = mapper.map(productDto);
+        return mapper.map(repository.save(product));
     }
 }

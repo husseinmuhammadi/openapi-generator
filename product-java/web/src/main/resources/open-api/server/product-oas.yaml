@@ -30,7 +30,7 @@ paths:
                   $ref: '#/components/schemas/Product'
     post:
       description: Create a new product
-      operationId: saveProduct
+      operationId: createProduct
       requestBody:
         content:
           application/json:
@@ -45,6 +45,6 @@ components:
       type: object
       properties:
         id:
-          type: integer
+          type: string
         name:
           type: string
